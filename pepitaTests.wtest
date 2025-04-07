@@ -1,0 +1,15 @@
+import pepita.*
+
+describe "Pepita, Pepon y Roque"{
+
+    test "La energia inicial de Pepon es 30"{
+
+        assert.fail("IMPLEMENTAR EL TEST!")
+    }
+
+    test "Pepon al comer alpiste queda con energia en 40"{
+
+        assert.fail("IMPLEMENTAR EL TEST!")
+    }
+
+}
