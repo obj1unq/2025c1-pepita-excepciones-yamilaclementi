@@ -5,9 +5,24 @@ object pepita {
 		energia = energia + comida.energiaQueAporta()
 	}
 	
-	method volar(distancia) {
-		energia = energia - 10 - distancia
-	}
+    method energiaParaVolar(distanica) {
+        return 10 + distancia
+    }
+
+    method puedeVolar(distancia) {
+        return energia >= self.energiaParaVolar(distancia)
+    }
+
+    method validarVolar(distancia) {
+	    if (not self.puedeVolar(distancia)) {
+        self.error ("no tengo suficiente energia")  
+        }
+    }
+
+    method volar(distancia) {
+        self.validarVolar(distancia)
+        energia = energia - self.energiaParaVolar(distanica)
+    }
 		
 	method energia() {
 		return energia
@@ -50,13 +65,27 @@ object pepon {
 	}
 		
 	method comer(comida) {
-		energia += energia + comida.energiaQueAporta() / 2
+		energia = energia + comida.energiaQueAporta() / 2
 	}
 		
-	method volar(distancia) {
-		energia = energia - 20 - 2*distancia
-	}
-	
+    method energiaParaVolar(distanica) {
+        return 20 + 2 * distancia
+    }
+
+    method puedeVolar(distancia) {
+        return energia >= self.energiaParaVolar(distancia)
+    }
+
+    method validarVolar(distancia) {
+	    if (not self.puedeVolar(distancia)) {
+        self.error ("no tengo suficiente energia")  
+        }
+    }
+
+    method volar(distancia) {
+        self.validarVolar(distancia)
+        energia = energia - self.energiaParaVolar(distanica)
+    }
 }
 
 object roque {
